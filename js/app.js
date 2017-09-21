@@ -22,7 +22,11 @@ Enemy.prototype.update = function(dt) {
     if (this.x >= 505) {
             this.x = 0;
         }
-Collision(this);
+    Enemy.prototype.checkCollision = function () {
+  player.y + 120 >= this.y + 80
+  //Other statements
+};
+this.checkCollision();
 };
 
 // Draw the enemy on the screen, required method for game
@@ -43,7 +47,7 @@ var Collision = function(anEnemy) {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var player = function(x,y) {
+var Player = function(x,y) {
 
     this.sprite = 'images/char-boy.png';
     this.x=x;
@@ -58,17 +62,17 @@ player.prototype.update = function(dt) {
     this.dt = 150;
 };
 player.prototype.handleInput = function(keyPress) {
-    if (keyPress == 'left') {
-        player.x-=100;
+    if (keyPress == 'left' && this.x > 0) {
+        this.x-=100;
     }
-    if (keyPress == 'up') {
-        player.y -= 100;
+    if (keyPress == 'up' && this.y > 0) {
+        this.y -= 100;
     }
-    if (keyPress == 'right') {
-        player.x += 100;
+    if (keyPress == 'right' && this.x > 0) {
+        this.x += 100;
     }
-    if (keyPress == 'down') {
-        player.y +=100;
+    if (keyPress == 'down' && this.y > 0) {
+        this.y +=100;
     }
     console.log('keyPress is: ' + keyPress);
 };
