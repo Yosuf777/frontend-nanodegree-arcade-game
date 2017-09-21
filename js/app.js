@@ -56,13 +56,13 @@ var Player = function(x, y) {
 
 
 };
-player.prototype.update = function(dt) {
+Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
     this.dt = 150;
 };
-player.prototype.handleInput = function(keyPress) {
+Player.prototype.handleInput = function(keyPress) {
     if (keyPress == 'left' && this.x > 0) {
         this.x -= 100;
     }
@@ -78,7 +78,7 @@ player.prototype.handleInput = function(keyPress) {
     console.log('keyPress is: ' + keyPress);
 };
 // Draw the enemy on the screen, required method for game
-player.prototype.render = function() {
+Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
