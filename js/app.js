@@ -1,14 +1,14 @@
 // Enemies our player must avoid
-var Enemy = function(x,y,s) {
+var Enemy = function(x, y, s) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.x=x;
-    this.y=y;
-    this.s=s;
+    this.x = x;
+    this.y = y;
+    this.s = s;
 };
 
 // Update the enemy's position, required method for game
@@ -20,13 +20,13 @@ Enemy.prototype.update = function(dt) {
     this.x += this.s * dt;
 
     if (this.x >= 505) {
-            this.x = 0;
-        }
-    Enemy.prototype.checkCollision = function () {
-  player.y + 120 >= this.y + 80
-  //Other statements
-};
-this.checkCollision();
+        this.x = 0;
+    }
+    Enemy.prototype.checkCollision = function() {
+        player.y + 120 >= this.y + 80
+        //Other statements
+    };
+    this.checkCollision();
 };
 
 // Draw the enemy on the screen, required method for game
@@ -36,22 +36,23 @@ Enemy.prototype.render = function() {
 var Collision = function(anEnemy) {
     // check for collision between enemy and player
     if (
-        player.y + 120 >= anEnemy.y + 80
-        && player.x + 15 <= anEnemy.x + 78
-        && player.y + 63 <= anEnemy.y + 135
-        && player.x + 66 >= anEnemy.x + 12) {
+        player.y + 120 >= anEnemy.y + 80 &&
+        player.x + 15 <= anEnemy.x + 78 &&
+        player.y + 63 <= anEnemy.y + 135 &&
+        player.x + 66 >= anEnemy.x + 12) {
         console.log('collided');
         player.x = 200;
         player.y = 400;
-    }};
+    }
+};
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Player = function(x,y) {
+var Player = function(x, y) {
 
     this.sprite = 'images/char-boy.png';
-    this.x=x;
-    this.y=y;
+    this.x = x;
+    this.y = y;
 
 
 };
@@ -63,7 +64,7 @@ player.prototype.update = function(dt) {
 };
 player.prototype.handleInput = function(keyPress) {
     if (keyPress == 'left' && this.x > 0) {
-        this.x-=100;
+        this.x -= 100;
     }
     if (keyPress == 'up' && this.y > 0) {
         this.y -= 100;
@@ -72,7 +73,7 @@ player.prototype.handleInput = function(keyPress) {
         this.x += 100;
     }
     if (keyPress == 'down' && this.y > 0) {
-        this.y +=100;
+        this.y += 100;
     }
     console.log('keyPress is: ' + keyPress);
 };
@@ -84,11 +85,11 @@ player.prototype.render = function() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-player = new player(200,400);
-var allEnemies=[];
-allEnemies[0] = new Enemy(0,70,50);
-allEnemies[1] = new Enemy(0,140,100);
-allEnemies[2] = new Enemy(0,220,200);
+player = new player(200, 400);
+var allEnemies = [];
+allEnemies[0] = new Enemy(0, 70, 50);
+allEnemies[1] = new Enemy(0, 140, 100);
+allEnemies[2] = new Enemy(0, 220, 200);
 
 
 
