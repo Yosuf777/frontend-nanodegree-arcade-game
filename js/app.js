@@ -22,7 +22,7 @@ Enemy.prototype.update = function(dt) {
     if (this.x >= 505) {
         this.x = 0;
     }
-    this.checkCollision(this);
+    this.checkCollision();
 
 
 };
@@ -64,18 +64,18 @@ Player.prototype.update = function(dt) {
     this.dt = 150;
 };
 Player.prototype.handleInput = function(keyPress) {
-    var abc = 0;
-    if (keyPress == 'left' && this.x > abc) {
-        this.x -= 100;
+    
+    if (keyPress == 'left' && this.x > 0) {
+        this.x -= 101;
     }
-    if (keyPress == 'up' && this.y > abc) {
-        this.y -= 100;
+    if (keyPress == 'up' && this.y > 0) {
+        this.y -= 83;
     }
-    if (keyPress == 'right' && this.x > abc) {
-        this.x += 100;
+    if (keyPress == 'right' && this.x > 0) {
+        this.x += 101;
     }
-    if (keyPress == 'down' && this.y > abc) {
-        this.y += 100;
+    if (keyPress == 'down' && this.y > 0) {
+        this.y += 83;
     }
     console.log('keyPress is: ' + keyPress);
 };
@@ -84,8 +84,8 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 Player.prototype.reset = function() {
-    player.x = 200;
-    player.y = 400;
+    this.x = 200;
+    this.y = 400;
 }
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
