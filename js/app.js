@@ -22,35 +22,30 @@ Enemy.prototype.update = function(dt) {
     if (this.x >= 505) {
         this.x = 0;
     }
-    
-};
-var COLLISION_MARGIN = 75;
+    this.checkCollision(this);
 
-Enemy.prototype.checkCollision = function () {
-    if (Math.abs(this.x - player.x)) < COLLISION_MARGIN &&
-        Math.abs(this.y - player.y)) < COLLISION_MARGIN) {
-            // crash
-            player.reset();
-        }
+
+};
+
+var COLLISION_MARGIN = 80;
+
+Enemy.prototype.checkCollision = function() {
+    if (Math.abs(this.x - player.x) < COLLISION_MARGIN &&
+        Math.abs(this.y - player.y) < COLLISION_MARGIN) {
+
+        // crash
+        player.reset();
+    }
 }
-    this.checkCollision();
+
+
+
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-var Collision = function(anEnemy) {
-    // check for collision between enemy and player
-    if (
-        player.y + 120 >= anEnemy.y + 80 &&
-        player.x + 15 <= anEnemy.x + 78 &&
-        player.y + 63 <= anEnemy.y + 135 &&
-        player.x + 66 >= anEnemy.x + 12) {
-        console.log('collided');
-        player.x = 83;
-        player.y = 101;
-    }
-};
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -88,7 +83,10 @@ Player.prototype.handleInput = function(keyPress) {
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-
+Player.prototype.reset = function() {
+    player.x = 200;
+    player.y = 400;
+}
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
