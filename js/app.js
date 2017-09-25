@@ -22,16 +22,18 @@ Enemy.prototype.update = function(dt) {
     if (this.x >= 505) {
         this.x = 0;
     }
-    Enemy.prototype.checkCollision = function() {
-        player.y + 120 >= this.y + 80;
-        player.x + 15 >= this.x + 78;
-        player.y + 63 >= this.y + 135;
-        player.x + 66 >= this.x + 12;
-
-        //Other statements
-    };
-    this.checkCollision();
+    
 };
+var COLLISION_MARGIN = 75;
+
+Enemy.prototype.checkCollision = function () {
+    if (Math.abs(this.x - player.x)) < COLLISION_MARGIN &&
+        Math.abs(this.y - player.y)) < COLLISION_MARGIN) {
+            // crash
+            player.reset();
+        }
+}
+    this.checkCollision();
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
