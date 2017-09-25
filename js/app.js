@@ -23,7 +23,11 @@ Enemy.prototype.update = function(dt) {
         this.x = 0;
     }
     Enemy.prototype.checkCollision = function() {
-        player.y + 120 >= this.y + 80
+        player.y + 120 >= this.y + 80;
+        player.x + 15 >= this.x + 78;
+        player.y + 63 >= this.y + 135;
+        player.x + 66 >= this.x + 12;
+
         //Other statements
     };
     this.checkCollision();
@@ -41,8 +45,8 @@ var Collision = function(anEnemy) {
         player.y + 63 <= anEnemy.y + 135 &&
         player.x + 66 >= anEnemy.x + 12) {
         console.log('collided');
-        player.x = 200;
-        player.y = 400;
+        player.x = 83;
+        player.y = 101;
     }
 };
 // Now write your own player class
@@ -63,16 +67,17 @@ Player.prototype.update = function(dt) {
     this.dt = 150;
 };
 Player.prototype.handleInput = function(keyPress) {
-    if (keyPress == 'left' && this.x > 0) {
+    var abc = 0;
+    if (keyPress == 'left' && this.x > abc) {
         this.x -= 100;
     }
-    if (keyPress == 'up' && this.y > 0) {
+    if (keyPress == 'up' && this.y > abc) {
         this.y -= 100;
     }
-    if (keyPress == 'right' && this.x > 0) {
+    if (keyPress == 'right' && this.x > abc) {
         this.x += 100;
     }
-    if (keyPress == 'down' && this.y > 0) {
+    if (keyPress == 'down' && this.y > abc) {
         this.y += 100;
     }
     console.log('keyPress is: ' + keyPress);
