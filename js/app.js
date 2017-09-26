@@ -22,6 +22,9 @@ Enemy.prototype.update = function(dt) {
     if (this.x >= 505) {
         this.x = 0;
     }
+    if (this.y < 0){
+        this.reset();
+}
     this.checkCollision();
 
 
@@ -32,7 +35,7 @@ var COLLISION_MARGIN = 75;
 
 Enemy.prototype.checkCollision = function() {
     if (Math.abs(this.x - player.x) < COLLISION_MARGIN &&
-        Math.abs(this.y - player.y) < COLLISION_MARGIN) {
+        Math.abs(this.y - player.y) < COLLISION_MARGIN / 2) {
 
         // crash
         player.reset();
