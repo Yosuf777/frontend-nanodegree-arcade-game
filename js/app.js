@@ -27,7 +27,8 @@ Enemy.prototype.update = function(dt) {
 
 };
 
-var COLLISION_MARGIN = 80;
+var COLLISION_MARGIN = 75;
+
 
 Enemy.prototype.checkCollision = function() {
     if (Math.abs(this.x - player.x) < COLLISION_MARGIN &&
@@ -65,16 +66,16 @@ Player.prototype.update = function(dt) {
 };
 Player.prototype.handleInput = function(keyPress) {
     
-    if (keyPress == 'left' && this.x > 0) {
+    if (keyPress == 'left' && this.x != 0) {
         this.x -= 101;
     }
-    if (keyPress == 'up' && this.y > 0) {
+    if (keyPress == 'up' && this.y != 0) {
         this.y -= 83;
     }
-    if (keyPress == 'right' && this.x > 0) {
+    if (keyPress == 'right' && this.x != 0) {
         this.x += 101;
     }
-    if (keyPress == 'down' && this.y > 0) {
+    if (keyPress == 'down' && this.y != 0) {
         this.y += 83;
     }
     console.log('keyPress is: ' + keyPress);
