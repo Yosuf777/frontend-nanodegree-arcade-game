@@ -22,9 +22,7 @@ Enemy.prototype.update = function(dt) {
     if (this.x >= 505) {
         this.x = 0;
     }
-    if (this.y < 0){
-        this.reset();
-}
+
     this.checkCollision();
 
 
@@ -34,15 +32,17 @@ var COLLISION_MARGIN = 75;
 
 
 Enemy.prototype.checkCollision = function() {
+
     if (Math.abs(this.x - player.x) < COLLISION_MARGIN &&
+
         Math.abs(this.y - player.y) < COLLISION_MARGIN / 2) {
+
 
         // crash
         player.reset();
+
     }
 }
-
-
 
 
 // Draw the enemy on the screen, required method for game
@@ -66,13 +66,19 @@ Player.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.dt = 150;
+
+    if (this.y < 0) {
+        this.reset();
+
+    }
+
 };
 Player.prototype.handleInput = function(keyPress) {
 
-    if (keyPress === 'left' && this.x >10 ) {
+    if (keyPress === 'left' && this.x > 10) {
         this.x -= 101;
     }
-    if (keyPress === 'up' &&  this.y > 10) {
+    if (keyPress === 'up' && this.y > 10) {
         this.y -= 83;
     }
     if (keyPress === 'right' && this.x < 400) {
@@ -91,6 +97,9 @@ Player.prototype.reset = function() {
     this.x = 200;
     this.y = 400;
 }
+
+
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
