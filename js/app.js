@@ -66,16 +66,16 @@ Player.prototype.update = function(dt) {
 };
 Player.prototype.handleInput = function(keyPress) {
     
-    if (keyPress == 'left' && this.x != 0) {
+    if (keyPress == 'left' && this.x => 505) {
         this.x -= 101;
     }
-    if (keyPress == 'up' && this.y != 0) {
+    if (keyPress == 'up' && this.y => 606) {
         this.y -= 83;
     }
-    if (keyPress == 'right' && this.x != 0) {
+    if (keyPress == 'right' && this.x => 505) {
         this.x += 101;
     }
-    if (keyPress == 'down' && this.y != 0) {
+    if (keyPress == 'down' && this.y => 606) {
         this.y += 83;
     }
     console.log('keyPress is: ' + keyPress);
