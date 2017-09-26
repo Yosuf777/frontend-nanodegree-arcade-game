@@ -65,17 +65,17 @@ Player.prototype.update = function(dt) {
     this.dt = 150;
 };
 Player.prototype.handleInput = function(keyPress) {
-    
-    if (keyPress == 'left' && this.x => 505) {
+
+    if (keyPress === 'left' && this.x >10 ) {
         this.x -= 101;
     }
-    if (keyPress == 'up' && this.y => 606) {
+    if (keyPress === 'up' &&  this.y > 10) {
         this.y -= 83;
     }
-    if (keyPress == 'right' && this.x => 505) {
+    if (keyPress === 'right' && this.x < 400) {
         this.x += 101;
     }
-    if (keyPress == 'down' && this.y => 606) {
+    if (keyPress === 'down' && this.y < 400) {
         this.y += 83;
     }
     console.log('keyPress is: ' + keyPress);
